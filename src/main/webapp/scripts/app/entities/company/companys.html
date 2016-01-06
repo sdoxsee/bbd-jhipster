@@ -14,10 +14,9 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="lunchApp.company.name">Name</span></th>
-                    <th><span translate="lunchApp.company.user">user</span></th>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="lunchApp.company.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -25,11 +24,6 @@
                 <tr ng-repeat="company in companys track by company.id">
                     <td><a ui-sref="company.detail({id:company.id})">{{company.id}}</a></td>
                     <td>{{company.name}}</td>
-                    <td>
-                        <span ng-repeat="user in company.users">
-                            {{user.login}}{{$last ? '' : ', '}}
-                        <span>
-                    </td>
                     <td>
                         <button type="submit"
                                 ui-sref="company.detail({id:company.id})"
@@ -50,5 +44,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
     </div>
 </div>

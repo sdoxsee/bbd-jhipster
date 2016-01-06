@@ -4,8 +4,11 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Company;
 import com.mycompany.myapp.repository.CompanyRepository;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
+import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -73,10 +76,13 @@ public class CompanyResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Company> getAllCompanys() {
-        log.debug("REST request to get all Companys");
-        return companyRepository.findAllWithEagerRelationships();
-            }
+    public ResponseEntity<List<Company>> getAllCompanys(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Companys");
+        Page<Company> page = companyRepository.findAll(pageable); 
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/companys");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 
     /**
      * GET  /companys/:id -> get the "id" company.
