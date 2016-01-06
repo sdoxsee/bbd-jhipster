@@ -7,7 +7,7 @@ angular.module('lunchApp')
                 parent: 'entity',
                 url: '/employees',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'],
                     pageTitle: 'lunchApp.employee.home.title'
                 },
                 views: {
@@ -29,7 +29,7 @@ angular.module('lunchApp')
                 parent: 'entity',
                 url: '/employee/{id}',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'],
                     pageTitle: 'lunchApp.employee.detail.title'
                 },
                 views: {
@@ -53,7 +53,7 @@ angular.module('lunchApp')
                 parent: 'employee',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -81,7 +81,7 @@ angular.module('lunchApp')
                 parent: 'employee',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -104,7 +104,7 @@ angular.module('lunchApp')
                 parent: 'employee',
                 url: '/{id}/delete',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
