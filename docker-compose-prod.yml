@@ -1,0 +1,10 @@
+lunch-postgresql:
+  container_name: lunch-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/lunch/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=lunch
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"
