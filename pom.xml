@@ -637,6 +637,8 @@
                                     <skipTests>true</skipTests>
                                     <buildTool>grunt</buildTool>
                                     <buildArgs>sass:server --force</buildArgs>
+                                    <npmInstallArgs>--version</npmInstallArgs>
+                                    <bowerInstallArgs>--version</bowerInstallArgs>
                                 </configuration>
                             </execution>
                         </executions>
