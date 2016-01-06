@@ -3,7 +3,7 @@
 angular.module('lunchApp')
     .controller('UserManagementController', function ($scope, User, ParseLinks, Language) {
         $scope.users = [];
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_COMPANY", "ROLE_EMPLOYEE"];
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });

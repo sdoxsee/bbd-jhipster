@@ -1,0 +1,10 @@
+{
+    "lunchApp": {
+        "Gender" : {
+            "null": "",
+            "Female": "Female",
+            "Male": "Male",
+            "Undifferentiated": "Undifferentiated"
+        }
+    }
+}

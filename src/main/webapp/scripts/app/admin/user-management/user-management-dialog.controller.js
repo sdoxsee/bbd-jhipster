@@ -5,7 +5,7 @@ angular.module('lunchApp').controller('UserManagementDialogController',
         function($scope, $stateParams, $uibModalInstance, entity, User, Language) {
 
         $scope.user = entity;
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_COMPANY", "ROLE_EMPLOYEE"];
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });
